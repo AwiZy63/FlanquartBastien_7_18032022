@@ -72,20 +72,47 @@ const searchRecipeCards = async () => {
         await fetchData();
 
         if (value.length > 2) {
-            console.log(ingredients)
+            // console.log(ingredients)
         
             displayTags();
             
-
-            // Modern algo
-            filteredRecipes = await recipes.filter((recipe) => {
-                const recipeName = recipe.name.toLowerCase();
-                const recipeDescription = recipe.description.toLowerCase();
+            const nativeAlgo = (recipes, value) => {
+                const list = [];
+                for (let recipe of recipes) {
+                    const recipeName = recipe.name.toLowerCase();
+                    const recipeDescription = recipe.description.toLowerCase();
             
-                return recipeDescription.toLowerCase().includes(value.toLowerCase()) ||
-                    recipeName.toLowerCase().includes(value.toLowerCase()) ||
-                    recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(value.toLowerCase()))
-            });
+                    const regex = new RegExp('(?:^|\\s)' + value.toLowerCase(), 'i');
+                    const isNameMatch = regex.test(recipeName);
+                    const isDescriptionMatch = regex.test(recipeDescription);
+            
+                    for (const ingredients of recipe.ingredients) {
+                        const isIngredientMatch = regex.test(ingredients.ingredient);
+            
+                        if (isIngredientMatch) {
+                            list.push(recipe);
+                        }
+                    }
+            
+                    if (isNameMatch) {
+                        list.push(recipe);
+                    }
+            
+                    if (isDescriptionMatch) {
+                        list.push(recipe);
+                    }
+                }
+            
+                const filteredRecipes = [...new Set(list)];
+            
+                return filteredRecipes;
+            }
+
+            // Native algo
+            filteredRecipes = await nativeAlgo(recipes, value);
+
+            // console.log("filteredRecipes")
+            // console.log(filteredRecipes)
 
             if (filteredRecipes.length > 0) {
                 if (updatedRecipes && updatedRecipes.length > 0) {
@@ -288,9 +315,9 @@ const displayTags = async () => {
 
             /* Filtrer */
 
-            console.log(searchInput.value)
-            console.log(filteredRecipes)
-            console.log(element.textContent);
+            // console.log(searchInput.value)
+            // console.log(filteredRecipes)
+            // console.log(element.textContent);
 
             /***********/
 
@@ -423,7 +450,7 @@ const init = async () => {
 
     await displayTags();
 
-    // console.log([ingredients, appliances, ustensils]);
+    // // console.log([ingredients, appliances, ustensils]);
     await displayRecipeCards();
     searchRecipeCards();
 }
