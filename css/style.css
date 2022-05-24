@@ -1,13 +1,231 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-
-:root {
-    --blue-color: #3282F7;
-    --green-color: #68D9A4;
-    --red-color: #ED6454;
-    --light-gray-color: #E7E7E7;
-    --dark-gray-color: #C7BEBE;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 body {
-    font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
+
+.header {
+  max-width: 1240px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 42px 32px 0;
+}
+.header .header-logo {
+  align-self: center;
+  width: 268px;
+}
+.header .search-section {
+  width: 100%;
+}
+.header .search-section .search-section-input {
+  position: relative;
+}
+.header .search-section .search-section-input .search-input {
+  max-width: 1204px;
+  width: calc(100% - 36px);
+  margin: 17px 0 25px 0;
+  font-size: 18px;
+  padding: 18px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e7e7e7;
+}
+.header .search-section .search-section-input .search-icon {
+  width: 32px;
+  height: 32px;
+  content: url("../assets/icons/search.svg");
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translate(0, -60%);
+  cursor: pointer;
+}
+.header .search-section .search-section-filters .search-section-filters-selected-filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.header .search-section .search-section-filters .search-section-filters-selected-filters .selected-filter {
+  display: inline-block;
+  background-color: #c7bebe;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 55px 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  position: relative;
+}
+.header .search-section .search-section-filters .search-section-filters-selected-filters .selected-filter .filter-remove {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-100%, -40%);
+  cursor: pointer;
+}
+.header .search-section .search-section-filters .search-section-filters-selected-filters .selected-filter .filter-remove img {
+  width: 18px;
+}
+.header .search-section .search-section-filters .search-section-filters-lists {
+  margin-top: 15px;
+  display: flex;
+  gap: 20px;
+}
+.header .search-section .search-section-filters .search-section-filters-lists .filter-list {
+  position: relative;
+  min-width: 170px;
+  width: fit-content;
+  border-radius: 5px;
+  height: fit-content;
+}
+.header .search-section .search-section-filters .search-section-filters-lists .filter-list .filter-list-input {
+  width: 170px;
+  border-radius: 5px;
+  border: none;
+  padding: 23px 15px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+}
+.header .search-section .search-section-filters .search-section-filters-lists .filter-list .filter-list-input::placeholder {
+  color: white;
+  opacity: 1;
+}
+.header .search-section .search-section-filters .search-section-filters-lists .filter-list .filter-list-input:focus {
+  cursor: text;
+}
+.header .search-section .search-section-filters .search-section-filters-lists .filter-list .list-arrow {
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.header .search-section .search-section-filters .search-section-filters-lists .filter-list .list-arrow img {
+  transition: transform 0.2s;
+  width: 100%;
+}
+.header .search-section .search-section-filters .search-section-filters-lists .filter-list .filter-list-content-elements {
+  display: none;
+  top: 100%;
+  position: absolute;
+  background-color: #3282f7;
+  grid-template-columns: repeat(3, 205px);
+  align-items: start;
+  gap: 10px;
+  grid-auto-rows: 16px;
+  flex-wrap: wrap;
+  width: fit-content;
+  max-width: 633px;
+  padding: 0;
+  margin: 0;
+  padding: 19px 16px;
+  border-radius: 0 0 5px 5px;
+}
+.header .search-section .search-section-filters .search-section-filters-lists .filter-list .filter-list-content-elements .filter-list-content-element {
+  font-size: 18px;
+  list-style: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.main {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(3, 380px);
+  grid-gap: 50px;
+  justify-content: space-between;
+}
+.main .card {
+  background-color: #e7e7e7;
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  border-radius: 5px;
+}
+.main .card .card-header {
+  border-radius: 5px 5px 0 0;
+  background-color: #c7bebe;
+  width: 380px;
+  height: 178px;
+}
+.main .card .card-content {
+  height: 186px;
+  display: grid;
+  grid-template-rows: 48px 141px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 20px;
+}
+.main .card .card-content .card-content-title {
+  font-weight: 400;
+  font-size: 18px;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+.main .card .card-content .card-content-time {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: auto;
+}
+.main .card .card-content .card-content-time::before {
+  width: 20px;
+  height: 20px;
+  margin-right: 7px;
+  vertical-align: -4px;
+  content: url("../assets/icons/clock.svg");
+}
+.main .card .card-content .card-content-ingredients {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.main .card .card-content .card-content-ingredients .card-content-ingredient {
+  font-size: 12px;
+  margin: 0;
+  line-height: 14.4px;
+}
+.main .card .card-content .card-content-recipe {
+  font-size: 12px;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.empty {
+  display: flex;
+}
+.empty .not-found {
+  display: inline-block;
+  color: #c7bebe;
+  font-size: 42px;
+  text-align: center;
+}
+
+/* Filters */
+.ingredients-color {
+  background-color: #3282f7 !important;
+}
+
+.appliances-color {
+  background-color: #68d9a4 !important;
+}
+
+.ustensils-color {
+  background-color: #ed6454 !important;
+}
+
+/*# sourceMappingURL=style.css.map */

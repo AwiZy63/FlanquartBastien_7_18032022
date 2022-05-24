@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +9,54 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Les petits plats - Accueil</title>
 </head>
+
 <body>
-    <header></header>
-    <main></main>
+    <header class="header">
+        <img class="header-logo" src="./assets/logos/banner_logo.png" alt="Logo : Les petits plats">
+        <section class="search-section">
+            <div class="search-section-input">
+                <input class="search-input" type="text" name="searchRecipe" id="searchRecipe"
+                    placeholder="Rechercher une recette">
+                <img class="search-icon" src="./assets/icons/search.svg" alt="Search icon">
+            </div>
+            <section class="search-section-filters">
+                <div class="search-section-filters-selected-filters">
+                </div>
+                <div class="search-section-filters-lists">
+                    <div id="ingredientsTags" class="filter-list ingredients-color">
+                        <input class="filter-list-input ingredients-color" placeholder="Ingrédients" type="text"
+                            name="ingredient" id="ingredientInput">
+                        <span id="ingredientsArrow" class="list-arrow"><img src="./assets/icons/arrow.svg" alt="" /></span>
+                        <ul id="ingredientsTagsList" class="filter-list-content-elements show">
+                            <li class="filter-list-content-element">lorem</li>
+                        </ul>
+                    </div>
+
+                    <div id="appliancesTags" class="filter-list appliances-color">
+                        <input class="filter-list-input appliances-color" placeholder="Appareils" type="text"
+                            name="appliance" id="applianceInput">
+                        <span id="appliancesArrow" class="list-arrow"><img src="./assets/icons/arrow.svg" alt="" /></span>
+                        <ul id="appliancesTagsList" class="filter-list-content-elements appliances-color">
+                            <li class="filter-list-content-element">lorem</li>
+                        </ul>
+                    </div>
+
+                    <div id="ustensilsTags" class="filter-list ustensils-color">
+                        <input class="filter-list-input ustensils-color" placeholder="Ustensils" type="text"
+                            name="ustensil" id="ustensilInput">
+                        <span id="ustensilsArrow" class="list-arrow"><img src="./assets/icons/arrow.svg" alt="" /></span>
+                        <ul id="ustensilsTagsList" class="filter-list-content-elements ustensils-color">
+                            <li class="filter-list-content-element">lorem</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </header>
+    <main id="recipeCardsSection" class="main">
+    </main>
     <footer></footer>
-    <script type="module" src="./scripts/app.js"></script>
+    <script type="module" src="./scripts/app.js" async></script>
 </body>
+
 </html>
